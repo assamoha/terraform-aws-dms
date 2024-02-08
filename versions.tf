@@ -12,3 +12,8 @@ terraform {
     }
   }
 }
+output "replication_subnet_group_id" {
+  description = "The ID of the subnet group"
+  value       = try(aws_dms_replication_subnet_group.this[0].id, null)
+}
+
